@@ -3,8 +3,8 @@ Write-Host "Testing Zagros CMMS Login..." -ForegroundColor Cyan
 
 # Prepare login data
 $loginData = @{
-    username = "syeedalireza@yahoo.com"
-    password = "Admin@2026"
+    username = "admin@zagros.test"
+    password = "admin123"
 } | ConvertTo-Json
 
 Write-Host "`nSending login request..." -ForegroundColor Yellow

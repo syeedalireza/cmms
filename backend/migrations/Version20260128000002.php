@@ -14,7 +14,7 @@ final class Version20260128000002 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Create initial admin user: syeedalireza@yahoo.com';
+        return 'Create initial admin user: admin@zagros.test';
     }
 
     public function up(Schema $schema): void
@@ -37,7 +37,7 @@ final class Version20260128000002 extends AbstractMigration
                 updated_at
             ) VALUES (
                 gen_random_uuid(),
-                'syeedalireza@yahoo.com',
+                'admin@zagros.test',
                 :password,
                 'Syed Ali Reza',
                 'Admin',
@@ -52,6 +52,6 @@ final class Version20260128000002 extends AbstractMigration
 
     public function down(Schema $schema): void
     {
-        $this->addSql("DELETE FROM users WHERE email = 'syeedalireza@yahoo.com'");
+        $this->addSql("DELETE FROM users WHERE email = 'admin@zagros.test'");
     }
 }

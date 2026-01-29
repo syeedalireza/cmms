@@ -29,7 +29,7 @@ if ([string]::IsNullOrEmpty($hash)) {
 }
 
 # Update password in database
-$updateSQL = "UPDATE users SET password = '$hash' WHERE email = 'syeedalireza@yahoo.com';"
+$updateSQL = "UPDATE users SET password = '$hash' WHERE email = 'admin@zagros.test';"
 $sqlCommand = "docker exec zagros_postgres psql -U cmms -d zagros_cmms -c `"$updateSQL`""
 
 Write-Host "`nUpdating password in database..." -ForegroundColor Yellow
@@ -38,5 +38,5 @@ Invoke-Expression $sqlCommand
 Write-Host "`n✅ Password updated successfully!" -ForegroundColor Green
 Write-Host "`nLogin Details:" -ForegroundColor Cyan
 Write-Host "  URL: http://localhost/login" -ForegroundColor White
-Write-Host "  Email: syeedalireza@yahoo.com" -ForegroundColor White
+Write-Host "  Email: admin@zagros.test" -ForegroundColor White
 Write-Host "  Password: $NewPassword" -ForegroundColor White

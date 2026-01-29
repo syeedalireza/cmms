@@ -70,7 +70,7 @@ All containers are **UP and RUNNING**:
 - **API Base**: http://localhost/api
 
 ### Admin Credentials
-- **Email**: syeedalireza@yahoo.com  
+- **Email**: admin@zagros.test  
 - **Password**: Shashpp7397
 
 ### Database Credentials (Internal Only)

@@ -26,5 +26,5 @@ Write-Host "`nChecking containers:" -ForegroundColor Yellow
 docker ps --filter "name=zagros" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 
 Write-Host "`nTo test login, open browser and go to: http://localhost/login" -ForegroundColor Cyan
-Write-Host "Email: syeedalireza@yahoo.com" -ForegroundColor Cyan
+Write-Host "Email: admin@zagros.test" -ForegroundColor Cyan
 Write-Host "Password: [your password]" -ForegroundColor Cyan
