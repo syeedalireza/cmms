@@ -19,7 +19,7 @@
         "lexik/jwt-authentication-bundle": "^2.20",
         "nelmio/cors-bundle": "^2.4",
         "phpdocumentor/reflection-docblock": "^5.3",
-        "phpoffice/phpspreadsheet": "^1.29",
+        "phpoffice/phpspreadsheet": "^5.4",
         "phpstan/phpdoc-parser": "^1.25",
         "predis/predis": "^2.2",
         "symfony/asset": "^7.0",
