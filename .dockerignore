@@ -1,0 +1,120 @@
+# ===================================
+# Git & Version Control
+# ===================================
+.git
+.gitignore
+.gitattributes
+.github/
+
+# ===================================
+# Documentation (Not needed in image)
+# ===================================
+README.md
+CONTRIBUTING.md
+LICENSE
+SECURITY.md
+CHANGELOG.md
+*.md
+docs/
+
+# ===================================
+# Environment & Secrets
+# ===================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# ===================================
+# IDE & Editors
+# ===================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.editorconfig
+
+# ===================================
+# OS Files
+# ===================================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+
+# ===================================
+# Logs & Debug
+# ===================================
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===================================
+# Testing & Coverage
+# ===================================
+coverage/
+.nyc_output/
+.phpunit.cache/
+.phpunit.result.cache
+phpunit.xml
+tests/
+**/*.test.*
+**/*.spec.*
+
+# ===================================
+# Build Artifacts (Built in container)
+# ===================================
+dist/
+build/
+.vite/
+
+# ===================================
+# Dependencies (Installed in container)
+# ===================================
+node_modules/
+vendor/
+bower_components/
+
+# ===================================
+# Temporary Files
+# ===================================
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ===================================
+# Backend Specific
+# ===================================
+/backend/var/
+/backend/public/bundles/
+/backend/.php-cs-fixer.cache
+/backend/composer.lock
+
+# ===================================
+# Frontend Specific
+# ===================================
+/frontend/package-lock.json
+/frontend/yarn.lock
+/frontend/pnpm-lock.yaml
+
+# ===================================
+# Development Scripts (Not needed)
+# ===================================
+*.ps1
+*.sh
+!generate-jwt-keys.sh
+
+# ===================================
+# Docker Files (Avoid recursion)
+# ===================================
+docker-compose*.yml
+!docker-compose.prod.yml
+Dockerfile.*

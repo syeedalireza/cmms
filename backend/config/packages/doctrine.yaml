@@ -1,0 +1,81 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+        driver: 'pdo_pgsql'
+        server_version: '16'
+        charset: utf8
+        default_table_options:
+            charset: utf8
+            collate: utf8_unicode_ci
+
+        # IMPORTANT: You MUST configure your server version,
+        # either here or in the DATABASE_URL env var (see .env file)
+        #server_version: '15'
+
+        profiling_collect_backtrace: '%kernel.debug%'
+    orm:
+        auto_generate_proxy_classes: true
+        enable_lazy_ghost_objects: true
+        report_fields_where_declared: true
+        validate_xml_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            # Asset:
+            #     is_bundle: false
+            #     dir: '%kernel.project_dir%/src/Infrastructure/Asset/Doctrine/Mapping'
+            #     prefix: 'App\Domain\Asset\Entity'
+            #     alias: Asset
+            #     type: xml
+            User:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Infrastructure/User/Doctrine/Mapping'
+                prefix: 'App\Domain\User'
+                alias: User
+                type: xml
+            # WorkOrder:
+            #     is_bundle: false
+            #     dir: '%kernel.project_dir%/src/Infrastructure/WorkOrder/Doctrine/Mapping'
+            #     prefix: 'App\Domain\WorkOrder\Entity'
+            #     alias: WorkOrder
+            #     type: xml
+            # Maintenance:
+            #     is_bundle: false
+            #     dir: '%kernel.project_dir%/src/Infrastructure/Maintenance/Doctrine/Mapping'
+            #     prefix: 'App\Domain\Maintenance\Entity'
+            #     alias: Maintenance
+            #     type: xml
+            # Inventory:
+            #     is_bundle: false
+            #     dir: '%kernel.project_dir%/src/Infrastructure/Inventory/Doctrine/Mapping'
+            #     prefix: 'App\Domain\Inventory\Entity'
+            #     alias: Inventory
+            #     type: xml
+        controller_resolver:
+            auto_mapping: false
+
+when@test:
+    doctrine:
+        dbal:
+            # "TEST_TOKEN" is typically set by ParaTest
+            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
+
+when@prod:
+    doctrine:
+        orm:
+            auto_generate_proxy_classes: false
+            proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
+            query_cache_driver:
+                type: pool
+                pool: doctrine.system_cache_pool
+            result_cache_driver:
+                type: pool
+                pool: doctrine.result_cache_pool
+
+    framework:
+        cache:
+            pools:
+                doctrine.result_cache_pool:
+                    adapter: cache.app
+                doctrine.system_cache_pool:
+                    adapter: cache.system

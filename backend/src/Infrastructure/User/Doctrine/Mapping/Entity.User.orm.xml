@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Domain\User\Entity\User" table="users">
+        <id name="id" type="string" column="id">
+            <generator strategy="NONE" />
+        </id>
+
+        <embedded name="email" class="App\Domain\User\ValueObject\Email" use-column-prefix="false" />
+
+        <field name="password" type="string" column="password" length="255" />
+        <field name="firstName" type="string" column="first_name" length="100" />
+        <field name="lastName" type="string" column="last_name" length="100" />
+        <field name="phone" type="string" column="phone" length="20" nullable="true" />
+        <field name="roles" type="json" column="roles" />
+        <field name="isActive" type="boolean" column="is_active" />
+        <field name="createdAt" type="datetime_immutable" column="created_at" />
+        <field name="updatedAt" type="datetime_immutable" column="updated_at" />
+
+        <indexes>
+            <index columns="email" name="idx_users_email" />
+        </indexes>
+
+        <unique-constraints>
+            <unique-constraint columns="email" name="uniq_users_email" />
+        </unique-constraints>
+    </entity>
+
+    <embeddable name="App\Domain\User\ValueObject\Email">
+        <field name="value" type="string" column="email" length="180" />
+    </embeddable>
+
+</doctrine-mapping>

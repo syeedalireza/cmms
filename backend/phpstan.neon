@@ -1,0 +1,14 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+    excludePaths:
+        - src/Kernel.php
+        - tests/bootstrap.php
+    symfony:
+        container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
+    doctrine:
+        repositoryClass: App\Infrastructure\Doctrine\Repository\BaseRepository
+    ignoreErrors:
+        # Add specific errors to ignore if needed

@@ -1,0 +1,6 @@
+# Custom routes can be defined here
+controllers:
+    resource:
+        path: ../src/UI/API/Controller/
+        namespace: App\UI\API\Controller
+    type: attribute

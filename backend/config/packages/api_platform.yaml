@@ -1,0 +1,53 @@
+api_platform:
+    title: 'Zagros CMMS API'
+    description: 'Enterprise Maintenance Management System API'
+    version: '1.0.0'
+    
+    # API Platform configuration
+    defaults:
+        stateless: true
+        cache_headers:
+            max_age: 0
+            shared_max_age: 3600
+            vary: ['Content-Type', 'Authorization', 'Origin']
+            public: true
+        extra_properties:
+            standard_put: true
+        pagination_client_enabled: true
+        pagination_client_items_per_page: true
+        pagination_items_per_page: 30
+        pagination_maximum_items_per_page: 100
+    
+    # OpenAPI/Swagger documentation
+    swagger:
+        versions: [3]
+        api_keys:
+            JWT:
+                name: Authorization
+                type: header
+    
+    # Format configuration
+    formats:
+        jsonld: ['application/ld+json']
+        json: ['application/json']
+        html: ['text/html']
+    
+    # Error handling
+    exception_to_status:
+        Symfony\Component\Security\Core\Exception\AccessDeniedException: 403
+        Doctrine\ORM\OptimisticLockException: 409
+        App\Domain\Exception\DomainException: 422
+    
+    # Doctrine filters
+    doctrine:
+        enabled: true
+    
+    # HTTP cache
+    http_cache:
+        invalidation:
+            enabled: true
+        public: true
+
+when@dev:
+    api_platform:
+        show_webby: false
